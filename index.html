@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Message ❤️</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            width: 80%;
+            max-width: 320px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .heart { 
+            font-size: 65px; 
+            animation: beat 1s infinite alternate;
+        }
+        @keyframes beat {
+            to { transform: scale(1.15); }
+        }
+        h1 { font-size: 28px; margin: 15px 0 10px; }
+        p { font-size: 18px; line-height: 1.5; margin-bottom: 20px; }
+        button {
+            background: white;
+            color: #ff477e;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="heart">💖</div>
+        <h1>I Love You jebin!</h1>
+        <p>তুমি আমার জীবনের সবচেয়ে সুন্দর অধ্যায়। সবসময় এভাবেই পাশে থেকো! 🌹</p>
+        <button onclick="alert('আমিও তোমাকে অনেক ভালোবাসি! ❤️')">Love You Too 🥰</button>
+    </div>
+</body>
+</html>
