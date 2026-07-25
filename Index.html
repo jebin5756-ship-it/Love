@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Proposal ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            font-family: 'Hind Siliguri', 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Love Card Container */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(255, 75, 110, 0.25);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .heart-icon {
+            font-size: 60px;
+            animation: beat 1s infinite alternate;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        @keyframes beat {
+            to { transform: scale(1.15); }
+        }
+
+        h1 {
+            color: #ff3366;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            min-height: 50px;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: inherit;
+        }
+
+        .btn-yes {
+            background: #ff3366;
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+        }
+
+        .btn-yes:hover {
+            transform: scale(1.08);
+            background: #e62e5c;
+        }
+
+        .btn-no {
+            background: #eee;
+            color: #666;
+            position: absolute;
+            right: 40px;
+            transition: all 0.2s ease;
+        }
+
+        /* Success Message Screen */
+        .success-screen {
+            display: none;
+        }
+
+        .success-screen h1 {
+            font-size: 32px;
+            color: #ff3366;
+            margin-bottom: 15px;
+        }
+
+        /* Floating Background Hearts */
+        .bg-heart {
+            position: absolute;
+            color: rgba(255, 51, 102, 0.3);
+            font-size: 20px;
+            animation: floatUp 4s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="mainCard">
+        <!-- Main Proposal Screen -->
+        <div id="proposalScreen">
+            <div class="heart-icon">💖</div>
+            <h1>I Love You jebin!</h1>
+            <p>তুমি কি সারাজীবন আমার পাশে থাকবে?</p>
+            
+            <div class="btn-group">
+                <button class="btn-yes" onclick="acceptLove()">হ্যাঁ ❤️</button>
+                <button class="btn-no" id="noBtn" onmouseover="moveButton()" onclick="moveButton()">না 😜</button>
+            </div>
+        </div>
+
+        <!-- Response Screen (Hidden initially) -->
+        <div class="success-screen" id="successScreen">
+            <div class="heart-icon">🥰</div>
+            <h1>I Love You Too! ❤️</h1>
+            <p>আমি জানতাম তুমি 'হ্যাঁ' বলবে! তোমার হাসিমুখটাই আমার সবথেকে প্রিয়। 🌹</p>
+        </div>
+    </div>
+
+    <script>
+        // Fun feature: Moves the "No" button when hovered or touched
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - 100) - (window.innerWidth / 2 - 100);
+            const y = Math.random() * (window.innerHeight - 100) - (window.innerHeight / 2 - 100);
+            
+            noBtn.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        // Action when "Yes" is clicked
+        function acceptLove() {
+            document.getElementById('proposalScreen').style.display = 'none';
+            document.getElementById('successScreen').style.display = 'block';
+            createHearts();
+        }
+
+        // Background floating hearts creation
+        function createHearts() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('bg-heart');
+                    heart.innerHTML = '❤️';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => { heart.remove(); }, 4000);
+                }, i * 150);
+            }
+        }
+    </script>
+</body>
+</html>
